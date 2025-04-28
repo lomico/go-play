@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio-Moliets</title>
+    <style>
+        /* Styles du lecteur */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            background-color: rgba(255,255,255,0.5)  /* Couleur de fond */
+        }
+
+        .player-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(160,160,160,1) ; /* Couleur du fond du lecteur */
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            background: #ff5722; /* Couleur du bouton */
+            color: white ;
+            font-size: 24px;
+            padding: 15px 45px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #e64a19; /* Couleur au survol */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="player-container">
+        <button id="playPauseBtn">▶️  <b>Go<b> !</button>
+        <audio id="webradio" src="https://solid55.streamupsolutions.com/proxy/roxnnbia/stream"></audio>
+    </div>
+
+    <script>
+        const audio = document.getElementById("webradio");
+        const playPauseBtn = document.getElementById("playPauseBtn");
+
+        playPauseBtn.addEventListener("click", function () {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.textContent = "⏸️ Pause";
+            } else {
+                audio.pause();
+                playPauseBtn.textContent = "▶️ Go !";
+            }
+        });
+    </script>
+
+</body>
+</html>
